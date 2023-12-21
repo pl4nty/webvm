@@ -2,7 +2,7 @@ FROM --platform=i386 kalilinux/kali-last-release
 
 RUN --mount=type=cache,target=/var/cache/apt \
   apt-get update && apt-get install -y --no-install-recommends \
-  wget unzip python3-pip torbrowser-launcher
+  kali-linux-headless wget unzip python3-pip torbrowser-launcher
 # python3-pip
 
 RUN useradd --create-home --shell /bin/zsh kali
@@ -16,5 +16,5 @@ RUN wget https://github.com/icsharpcode/AvaloniaILSpy/releases/download/v7.2-rc/
 RUN wget https://github.com/volatilityfoundation/volatility3/releases/download/v2.5.0/volatility3-2.5.0-py3-none-any.whl && \
   pip install volatility3-2.5.0-py3-none-any.whl
 
-ENV HOME="/home/kali" TERM="xterm" USER="kali" SHELL="/bin/zsh" EDITOR="vim" LANG="en_AU.UTF-8" LC_ALL="C"
+ENV HOME="/home/kali" TERM="xterm" USER="kali" SHELL="/bin/bash" EDITOR="vim" LANG="en_AU.UTF-8" LC_ALL="C"
 CMD [ "/bin/zsh" ]
