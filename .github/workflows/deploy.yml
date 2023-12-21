@@ -117,6 +117,7 @@ jobs:
       - uses: docker/setup-buildx-action@v3
       - uses: docker/build-push-action@v5
         with:
+          load: true
           context: .
           tags: ${{ env.TAG }}
           file: ${{ github.event.inputs.DOCKERFILE_PATH }}
