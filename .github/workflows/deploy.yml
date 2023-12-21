@@ -113,6 +113,8 @@ jobs:
       - run: sudo mkdir -p $DEPLOY_DIR
 
       # Build the i386 Dockerfile image.
+      - name: Load image cache variables
+        uses: crazy-max/ghaction-github-runtime@v3
       - run: docker build . --tag $TAG --file ${{ github.event.inputs.DOCKERFILE_PATH }} --platform=i386 --cache-from type=gha --cache-to type=gha,mode=max
       
       # Run the docker image so that we can export the container.
