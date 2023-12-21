@@ -119,6 +119,7 @@ jobs:
         with:
           context: .
           tags: ${{ env.TAG }}
+          file: ${{ github.event.inputs.DOCKERFILE_PATH }}
           platforms: i386
           cache-from: type=gha
           cache-to: type=gha,mode=max
