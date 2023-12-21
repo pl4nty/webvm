@@ -117,7 +117,7 @@ jobs:
         uses: crazy-max/ghaction-github-runtime@v3
       - run: |
           docker buildx create --use
-          docker build . --tag $TAG --file ${{ github.event.inputs.DOCKERFILE_PATH }} --platform=i386 --cache-from type=gha --cache-to type=gha,mode=max
+          docker buildx build . --tag $TAG --file ${{ github.event.inputs.DOCKERFILE_PATH }} --platform=i386 --cache-from type=gha --cache-to type=gha,mode=max
       
       # Run the docker image so that we can export the container.
       # Run the Docker container with the Google Public DNS nameservers: 8.8.8.8, 8.8.4.4
