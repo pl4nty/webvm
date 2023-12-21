@@ -2,7 +2,8 @@ FROM --platform=i386 kalilinux/kali-last-release
 
 RUN --mount=type=cache,target=/var/cache/apt \
   apt-get update && apt-get install -y --no-install-recommends \
-  kali-linux-default torbrowser-launcher
+  wget unzip python3-pip torbrowser-launcher
+# python3-pip
 
 RUN useradd --create-home --shell /bin/zsh kali
 USER kali
